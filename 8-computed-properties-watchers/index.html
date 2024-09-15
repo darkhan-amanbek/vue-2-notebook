@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Vue Instance</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="example">
+      <p>Original message: "{{ message }}"</p>
+      <p>Computed reversed message: {{ reversedMessage }}</p>
+    </div>
+    <script>
+      let vm = new Vue({
+        el: '#example',
+        data() {
+          return {
+            message: 'Hello'
+          }
+        },
+        computed: {
+          reversedMessage: function() {
+            return this.message.split('').reverse().join('');
+          }
+        }
+      });
+    </script>
+
+  </body>
+</html>

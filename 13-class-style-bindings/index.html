@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Vue Instance</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p v-bind:class="classObject"></p>
+    </div>
+    <script>
+      var vm = new Vue({
+        el: "#app",
+        data: {
+          active: true,
+          error: {
+            type: 'fatal'
+          }
+        },
+        computed: {
+          classObject: function() {
+            return {
+              active: this.active && !this.error,
+              'text-danger': this.error && this.error.type === 'fatal'
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Component Blog Post Example</title>
+    <script src="https://unpkg.com/vue@2"></script>
+  </head>
+  <body>
+    <div id="app">
+      <current-user v-for="user in users" v-bind:key="user.id" v-bind:user="user">
+        <template v-slot:default="slotProps">
+          {{ slotProps.user.firstName }}
+        </template>
+      </current-user>
+      <!-- shorthanded version -->
+      <!-- <current-user v-slot="slotProps" v-for="user in users" v-bind:key="user.id" v-bind:user="user">
+          {{ slotProps.user.firstName }}
+      </current-user> -->
+      <!-- shorthand and destruct version -->
+      <!-- <current-user v-slot="{ user }" v-for="user in users" v-bind:key="user.id" v-bind:user="user">
+          {{ user.firstName }}
+      </current-user> -->
+    </div>
+
+    <script>
+      Vue.component('current-user', {
+        props: ['user'],
+        template: `
+          <span>
+            <slot v-bind:user='user'>
+              {{ user.lastName }}
+            </slot>
+            <br />
+            <br />
+          </span>
+        `,
+      });
+
+      let vm = new Vue({
+        el: "#app",
+        data: {
+          users: [
+            {
+              id: 1,
+              firstName: 'Darik',
+              lastName: 'Aman'
+            },
+            {
+              id: 2,
+              firstName: 'SecondFirst',
+              lastName: 'SeconLast'
+            },
+            {
+              id: 3,
+              firstName: 'ThirdFirst',
+              lastName: 'ThirdLast'
+            },
+            {
+              id: 4,
+              firstName: 'FourthFirst',
+              lastName: 'FourthLast'
+            }
+          ]
+        }
+      })
+    </script>
+  </body>
+</html>

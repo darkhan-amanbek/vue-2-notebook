@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Component Blog Post Example</title>
+    <script src="https://unpkg.com/vue@2"></script>
+  </head>
+  <body>
+    <div id="app">
+      <base-layout>
+        <template v-slot:header>
+          <h1>This is header content</h1>
+        </template>
+        <h1>This is main content</h1>
+        <template v-slot:footer>
+          <h1>This is footer content</h1>
+        </template>
+      </base-layout>
+
+      <!-- shorthand for v-slot directives -->
+      <!-- <base-layout>
+        <template #header>
+          <h1>This is header content</h1>
+        </template>
+        <h1>This is main content</h1>
+        <template #footer>
+          <h1>This is footer content</h1>
+        </template>
+      </base-layout> -->
+    </div>
+
+    <script>
+      Vue.component("base-layout", {
+        props: ["user"],
+        template: `
+          <div class="container">
+            <header>
+              <slot name="header"></slot>
+            </header>
+            <main>
+              <slot></slot>
+            </main>
+            <footer>
+              <slot name="footer"></slot>
+            </footer>
+          </div>
+        `,
+      });
+
+      let vm = new Vue({
+        el: "#app",
+        data: {},
+      });
+    </script>
+  </body>
+</html>

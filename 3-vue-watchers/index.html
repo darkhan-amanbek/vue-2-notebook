@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Vue Instance</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      var vm = new Vue({
+        data: {
+          a: 1,
+          b: 2,
+          c: 3,
+          d: 4,
+          e: {
+            f: {
+              g: 5,
+            },
+          },
+        },
+        methods: {
+          someMethod(val, oldVal) {
+            console.log(val);
+          },
+          handle1(val, oldVal) {
+            console.log(val);
+          }
+        },
+        watch: {
+          a: function (val, oldVal) {
+            console.log("new: %s, old: %s", val, oldVal);
+            console.log("this: ", this);
+          },
+          // string method name
+          b: () => {
+            console.log(this);
+          },
+          // the callback will be called whenever any of the watched object properties change regardless of their nested depth
+          c: {
+            handler: function (val, oldVal) {
+              /* ... */
+            },
+            deep: true,
+          },
+          // the callback will be called immediately after the start of the observation
+          d: {
+            handler: "someMethod",
+            immediate: true,
+          },
+          // you can pass array of callbacks, they will be called one-by-one
+          e: [
+            "handle1",
+            function handle2(val, oldVal) {
+              /* ... */
+            },
+            {
+              handler: function handle3(val, oldVal) {
+                /* ... */
+              },
+              /* ... */
+            },
+          ],
+          // watch vm.e.f's value: {g: 5}
+          "e.f": function (val, oldVal) {
+            /* ... */
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
