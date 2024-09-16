@@ -22,15 +22,7 @@ module.exports = {
         loader: "vue-loader"
       },
       {
-        test: /\.scss$/,
-        use: [
-          "vue-style-loader",
-          "css-loader",
-          "sass-loader"
-        ]
-      },
-      {
-        test: /\.css$/,
+        test: /\.(scss|css)$/,
         use: [
           "vue-style-loader",
           {
@@ -40,6 +32,7 @@ module.exports = {
               esModule: false
             }
           },
+          "sass-loader"
         ]
       },
       {
@@ -50,7 +43,7 @@ module.exports = {
             options: {
               limit: 8192, // Convert images < 8kb to base64 strings
               name: 'images/[name].[hash:7].[ext]', // Output path for images
-              // esModule: false,
+              esModule: false,
             }
           }
         ]

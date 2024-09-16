@@ -1,7 +1,9 @@
 <template>
   <div class="page page_dark">
     <Header></Header>
-    <slot></slot>
+    <main>
+      <slot></slot>
+    </main>
     <Footer></Footer>
   </div>
 </template>
@@ -19,6 +21,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

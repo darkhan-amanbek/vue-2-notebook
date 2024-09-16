@@ -1,0 +1,36 @@
+// Fonts
+@import url("@/assets/scss/fonts.scss");
+
+body, body * {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container {
+    max-width: 1300px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.page_dark {
+    background-color: black;
+    color: white;
+}
+
+header, footer {
+    padding: 20px 0;
+}
+
+footer {
+    margin: auto 0 0 0;
+}

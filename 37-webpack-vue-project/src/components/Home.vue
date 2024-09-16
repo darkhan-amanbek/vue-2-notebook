@@ -1,31 +1,40 @@
 <template>
-  <div>
-    <h1>Page home!</h1>
-    <img src="@/assets/images/image-1.jpg" alt="">
+  <div class="container">
+    <h1 class="poppins-thin">Page home!</h1>
+    
+    <img src="@/assets/images/image-2.jpg" alt="">
+
     <div class="image"></div>
   </div>
 </template>
 
 <script>
-import imageFirst from "@/assets/images/image-1.jpg";
-
-console.log(imageFirst);
-
-
 export default {
   name: "Home",
 };
 </script>
 
+<!-- default css -->
 <style>
-  h1 {
-    color: #34495e;
-    font-family: sans-serif;
-  }
-
   .image {
     background-image: url("@/assets/images/image-2.jpg");
+    background-size: contain;
+    /* @/assets/images/image-2.jpg will be converted to js module require("@/assets/images/image-2.jpg") with css-loader */
     width: 100px;
     height: 100px;
+  }
+</style>
+
+<!-- pre-processor css -->
+<style lang="scss">
+  body h1 {
+    text-align: center;
+  }
+</style>
+
+<!-- scoped css -->
+<style scoped>
+  h1 {
+    background-color: black;
   }
 </style>
