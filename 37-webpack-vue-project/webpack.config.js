@@ -32,20 +32,7 @@ module.exports = {
               {
                 loader: 'css-loader',
                 options: {
-                  url: true,
-                  esModule: false,
-                  modules: {
-                    mode: "local",
-                    auto: true,
-                    exportGlobals: true,
-                    localIdentName: "[local]_[hash:base64:5]",
-                    localIdentContext: path.resolve(__dirname, "src"),
-                    localIdentHashSalt: "my-custom-hash",
-                    namedExport: true,
-                    exportLocalsConvention: "as-is",
-                    exportOnlyLocals: false,
-                    getJSON: ({ resourcePath, imports, exports, replacements }) => {},
-                  },
+                  modules: true
                 }
               },
               "sass-loader"
