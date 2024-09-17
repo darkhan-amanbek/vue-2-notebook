@@ -1,16 +1,18 @@
 <template>
   <DarkLayout>
-    Page About
+    <About></About>
   </DarkLayout>
 </template>
 
 <script>
 import DarkLayout from '@/layouts/DarkLayout.vue';
+import About from '../components/About.vue';
 
 export default {
-  name: "Page About",
+  name: "PageAbout",
   components: {
-    DarkLayout
+    DarkLayout,
+    About
   }
 }
 </script>

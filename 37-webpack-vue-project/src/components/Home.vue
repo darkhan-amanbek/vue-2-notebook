@@ -1,16 +1,21 @@
 <template>
   <div class="container">
-    <h1 class="poppins-thin">Page home!</h1>
+    <h1 :class="[$style.white, 'poppins-thin']">Page home!</h1>
     
     <img src="@/assets/images/image-2.jpg" alt="">
 
     <div class="image"></div>
+
+    <div :class="$style.red">Module class</div>
   </div>
 </template>
 
 <script>
 export default {
   name: "Home",
+  mounted() {
+    console.log(this.$style);
+  }
 };
 </script>
 

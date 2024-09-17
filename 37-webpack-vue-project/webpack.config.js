@@ -22,17 +22,49 @@ module.exports = {
         loader: "vue-loader"
       },
       {
-        test: /\.(scss|css)$/,
-        use: [
-          "vue-style-loader",
+        test: /\.css$/,
+        oneOf: [
+          // this matches `<style module>`
           {
-            loader: "css-loader",
-            options: {
-              url: true,
-              esModule: false
-            }
+            resourceQuery: /module/,
+            use: [
+              'vue-style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  url: true,
+                  esModule: false,
+                  modules: {
+                    mode: "local",
+                    auto: true,
+                    exportGlobals: true,
+                    localIdentName: "[local]_[hash:base64:5]",
+                    localIdentContext: path.resolve(__dirname, "src"),
+                    localIdentHashSalt: "my-custom-hash",
+                    namedExport: true,
+                    exportLocalsConvention: "as-is",
+                    exportOnlyLocals: false,
+                    getJSON: ({ resourcePath, imports, exports, replacements }) => {},
+                  },
+                }
+              },
+              "sass-loader"
+            ]
           },
-          "sass-loader"
+          // this matches plain `<style>` or `<style scoped>`
+          {
+            use: [
+              "vue-style-loader",
+              {
+                loader: "css-loader",
+                options: {
+                  url: true,
+                  esModule: false,
+                }
+              },
+              "sass-loader"
+            ]
+          }
         ]
       },
       {
