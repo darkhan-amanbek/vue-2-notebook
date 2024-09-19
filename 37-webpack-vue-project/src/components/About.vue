@@ -1,16 +1,16 @@
 <template>
-    <div>
-        About <br>
-        <div :class="$style.red">Moduled class</div>
+    <div class="about">
+        <div class="container">
+            <h1>About</h1> <br>
+            <div :class="$style.red">Moduled class if moduled mode on in wepback</div>
+        </div>
     </div>
+
 </template>
 
 <script>
 export default {
     name: "About",
-    mounted() {
-        console.log(this.$style);
-    }
 }
 </script>
 

@@ -22,36 +22,22 @@ module.exports = {
         loader: "vue-loader"
       },
       {
-        test: /\.css$/,
-        oneOf: [
-          // this matches `<style module>`
+        resourceQuery: /blockType=docs/,
+        loader: require.resolve('./docs-loader.js')
+      },
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          "vue-style-loader",
           {
-            resourceQuery: /module/,
-            use: [
-              'vue-style-loader',
-              {
-                loader: 'css-loader',
-                options: {
-                  modules: true
-                }
-              },
-              "sass-loader"
-            ]
+            loader: "css-loader",
+            options: {
+              url: true,
+              esModule: false,
+              // modules: true // if want moduled css 
+            }
           },
-          // this matches plain `<style>` or `<style scoped>`
-          {
-            use: [
-              "vue-style-loader",
-              {
-                loader: "css-loader",
-                options: {
-                  url: true,
-                  esModule: false,
-                }
-              },
-              "sass-loader"
-            ]
-          }
+          "sass-loader"
         ]
       },
       {
