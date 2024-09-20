@@ -8,3 +8,9 @@
 <docs>
     This is the documentation for component Docs.
 </docs>
+
+<script>
+export default {
+  name: "CustomBlock",
+};
+</script>
