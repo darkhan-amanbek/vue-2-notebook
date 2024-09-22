@@ -1,11 +1,16 @@
 <template>
   <section class="home">
     <div class="container">
-      <h1 :class="['poppins-thin']">Page home!</h1>
+      <h1 :class="['poppins-thin']">
+        Page home!
+      </h1>
       <br><br>
-      <img src="@/assets/images/image-2.jpg" alt="">
+      <img
+        src="@/assets/images/image-2.jpg"
+        alt=""
+      >
       <br><br>
-      <div class="image"></div>
+      <div class="image" />
       <br><br>
     </div>
   </section>
@@ -14,7 +19,7 @@
 <script>
 
 export default {
-  name: "Home",
+  name: "HomeComponent",
 };
 </script>
 

@@ -1,22 +1,22 @@
 <template>
   <div class="page page_dark">
-    <Header></Header>
+    <HeaderSite />
     <main>
-      <slot></slot>
+      <slot />
     </main>
-    <Footer></Footer>
+    <FooterSite />
   </div>
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
+import HeaderSite from "@/components/HeaderSite.vue";
+import FooterSite from "@/components/FooterSite.vue";
 
 export default {
   name: "DarkLayout",
   components: {
-    Header,
-    Footer
+    HeaderSite,
+    FooterSite
   }
 }
 </script>

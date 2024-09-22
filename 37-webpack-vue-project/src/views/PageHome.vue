@@ -1,18 +1,18 @@
 <template>
   <DarkLayout>
-    <Home></Home>
+    <HomeComponent />
   </DarkLayout>
 </template>
 
 <script>
 import DarkLayout from "@/layouts/DarkLayout.vue";
-import Home from "@/components/Home.vue";
+import HomeComponent from "@/components/HomeComponent.vue";
 
 export default {
   name: "PageHome",
   components: {
     DarkLayout,
-    Home
+    HomeComponent
   }
 }
 </script>
